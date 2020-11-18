@@ -27,8 +27,54 @@ $year=explode('-',$date)[0];
 $period=ceil(explode('-',$date)[1]/2);
 $awards=$pdo->query("select * from award_numbers where year='$year' && period='$period'")->fetchALL();
 
-echo "<pre>";
-print_r($awards);
-echo "</pre>";
+// echo "<pre>";
+// print_r($awards);
+// echo "</pre>";
+
+foreach($awards as $award){
+    switch($award['type']){
+        case 1:
+            //特別獎號=我的發票號碼
+            if($award['number']==$number){
+                echo "<br>號碼=".$number."<br>";
+                echo "中了特別獎<br>";
+            }else{
+                echo "特別獎沒中<br>";
+            }
+        break;
+        case 2:
+            //特獎
+            if($award['number']==$number){
+                echo "<br>號碼=".$number."<br>";
+                echo "中了特獎<br>";
+            }else{
+                echo "特獎沒中<br>";
+            }
+        break;
+        case 3:
+            //頭獎
+            for($i=5;$i>=0;$i--){
+                $target=mb_substr($award['number'],$i,(8-$i),'utf8');
+                $mynumber=mb_substr($number,$i,(8-$i),'utf8');
+
+                if($target==$mynumber){
+                    echo "<br>號碼=".$number."<br>";
+                    echo "中了{$awardStr[$i]}獎<br>";
+                }else{
+                    break;
+                }
+            }
+        break;
+        case 4:
+            if($award['number']==mb_substr($number,5,3,'utf8')){
+                echo "<bre>號碼=".$number."<br>";
+                echo "中了增開六獎";
+            }
+        break;
+
+    
+    }
+
+}
 
 ?>
