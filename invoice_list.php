@@ -7,6 +7,13 @@ $rows=$pdo->query($sql)->fetchAll();
 
 
 ?>
+<div class="row justify-content-around" style="list-style-type:none;padding:0">
+  <li><a href="">1,2月</a></li>
+  <li><a href="">3,4月</a></li>
+  <li><a href="">5,6月</a></li>
+  <li><a href="">7,8月</a></li>
+  <li><a href="">9,10月</a></li>
+  <li><a href="">11,12月</a></li>
 
 <table class="table text-center">
   <tr>
@@ -29,6 +36,9 @@ $rows=$pdo->query($sql)->fetchAll();
       </button>
       <button class="btn btn-sm btn-danger">
         <a class="text-light" href="?do=del_invoice&id=<?=$row['id'];?>">刪除</a>
+      </button>
+      <button class="btn btn-sm btn-success">
+        <a class="text-light" href="?do=award&id=<?=$row['id'];?>">對獎</a>
       </button>
     </td>
   </tr>
