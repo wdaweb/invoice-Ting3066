@@ -7,7 +7,7 @@ include_once "base.php";
 $codeBase=["AB","FF","GD","KJ","FJ","IY"];
 echo "資料產生中......";
 echo date("Y-m-d H:i:s");
-for($i=0;$i<10000;$i++){
+for($i=0;$i<20;$i++){
 
   //產生8位數亂數，若不滿八位，在最前方補零
   $code=$codeBase[rand(0,5)];
