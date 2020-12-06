@@ -1,0 +1,22 @@
+body{
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'SimHei', sans-serif;
+  box-sizing: border-box;
+  background-color: #fbfbfb;
+}
+
+.title{
+  letter-spacing: 0.3rem;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+
+
+
+
+
